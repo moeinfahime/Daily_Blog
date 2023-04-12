@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>home</title>
+</head>
+<body>
+<center><h2> In The Name of God</h2></center>
+
+<center>
+    {% for article in articles %}
+<article>
+    <img src="{{article.thumbnail.url}}" alt="{{article.title" ,width = "200", height = "200">
+    <h2>{{article.title}}</h2>
+    <small>{{article.publish}}</small>
+    <h1>{{article.description}}</h1>
+</article>
+{% endfor %}
+</center>
+
+</body>
+</html>
+
+#startbootstrap/themes

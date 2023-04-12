@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>home</title>
+</head>
+<body>
+<h2> In The Name of God</h2>
+{% for u in user %}
+<user>
+    <h3>username : {{u.username}}</h3>
+    <h3>age : {{u.age}}</h3>
+    <h3>job : {{u.job}}</h3>
+</user>
+{% endfor %}
+
+{% for article in articles %}
+<article>
+    <img src="{{article.image}}" alt="">
+    <h2>{{article.article}}</h2>
+    <h1>{{article.description}}</h1>
+</article>
+{% endfor %}
+</body>
+</html>

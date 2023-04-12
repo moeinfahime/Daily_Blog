@@ -1,0 +1,55 @@
+{% extends 'blog/base.html' %}
+
+{% load static %}
+
+{% block main %}
+<!-- Page Header-->
+<!--<header class="masthead" style="background-image: url('{% static 'blog/assets/img/home-bg.jpg' %}')">-->
+<header class="masthead img-cat" style="background-image: url('{{ category.thumbnail.url }}')">
+<!--<header> <img class = "img-cat" src="{{category.thumbnail.url }}" >-->
+    <div class="container position-relative px-4 px-lg-5">
+        <div class="row gx-4 gx-lg-5 justify-content-center">
+            <div class="col-md-10 col-lg-8 col-xl-7">
+                <div class="site-heading">
+                    <h2 class="title-color">{{ category.title}}</h2>
+                    <span class="subheading"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+<!-- Main Content-->
+<div class="container px-4 px-lg-5">
+    <div class="row gx-4 gx-lg-5 justify-content-center">
+        <div class="col-md-10 col-lg-8 col-xl-7">
+<!--            <h3 class="alert alert-primary text-center">Category : {{ category.title}}</h3>-->
+            {% for article in category.articles.published %}
+            <!-- Post preview-->
+            <div class="post-preview">
+                <a href="{% url 'blog:detail' article.slug %}">
+                    <h3 class="post-title">{{ article.title }}</h3>
+                    <h3 class="post-subtitle">{{ article.description | truncatewords:20 }}</h3>
+
+                </a>
+                <p class="post-meta">
+                    <a href="#!"></a>
+                <h6 class="post-subtitle">{{ article.publish }}</h6>
+<!--                <div>-->
+<!--                    {% for cat in article.category_published.all %}-->
+<!--                    <a href = "#"> #{{ cat.title }}</a>-->
+
+<!--                    {% endfor %}-->
+<!--                    </div>-->
+                </p>
+            </div>
+            <!-- Divider-->
+            <hr class="my-4"/>
+
+            <hr class="my-4"/>
+            {% endfor %}
+            <!-- Pager-->
+
+        </div>
+    </div>
+</div>
+{% endblock %}
